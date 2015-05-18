@@ -1,0 +1,13 @@
+/* 
+    Created on : 18/05/2015, 10:16:56
+    Author     : fcorrea
+*/
+.qz-body-main {
+    margin-top: 50px
+}
+
+@media print {
+    .hidden-print {
+        display: none;
+    }
+}

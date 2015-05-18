@@ -1,0 +1,24 @@
+{
+    "name": "fernandohcorrea/quiz-php",
+    "type": "project",
+    "description": "Quiz for PHP Developer",
+    "keywords": ["Teste", "Avaliacao", "PHP", "Test", "Quix", "Developers"],
+    "homepage": "https://github.com/fernandohcorrea/quiz-php",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Fernando H. Corrêa",
+            "email": "fernandohcorrea@fernandohcorrea.com.br",
+            "homepage": "http://www.fernandohcorrea.com.br",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "autoload": {
+        "psr-4": { 
+            "Quiz\\": "src/"
+        }
+    }
+}
