@@ -2,8 +2,44 @@
     Created on : 18/05/2015, 10:16:56
     Author     : fcorrea
 */
+
+p {
+    border: solid 2px rgba(255, 255, 255, 0);
+    padding: 0 0 0 10px;
+}
+
+.choice {
+    cursor: pointer;
+}
+
+.choice:hover {
+    background: rgba(141, 143, 146, 0.42);
+    border: solid 2px rgba(200, 143, 146, 0.10);
+    border-radius: 4px;
+}
+
+
+.choice-click {
+    background: rgba(58, 114, 228, 0.72);
+    border-radius: 4px;
+}
+
+.choice-correct {
+    border: solid 2px #5cb85c;
+    border-radius: 4px;
+    background: rgba(92, 184, 92, 0.6);
+}
+
 .qz-body-main {
-    margin-top: 50px
+    margin-top: 50px;
+}
+
+.heading-question {
+    cursor: pointer;
+}
+
+.body-question {
+    display:none;
 }
 
 @media print {
@@ -11,3 +47,4 @@
         display: none;
     }
 }
+

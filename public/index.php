@@ -33,11 +33,12 @@ try {
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/quiz.css">
+        <link rel="stylesheet" href="./css/quiz.css">
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="./js/php-quiz.js"></script>
     </head>
     <body class="qz-body-main" role="document">
         <nav class="navbar navbar-inverse navbar-fixed-top hidden-print">
@@ -51,7 +52,10 @@ try {
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Questões <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
+                                <?php
+                                foreach ($order as $ordem => $question_idx) : ?>
+                                <li><a href="#question-<?php echo $ordem?>">Question - <?php echo $ordem;?></a></li>
+                                <?php endforeach; ?>
                             </ul>
                         </li>
                     </ul>
@@ -69,11 +73,11 @@ try {
                 $question = $questions[$question_idx];
             ?>
             <div class="row">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
+                <div class="panel panel-primary question" id="question-<?=$ordem?>">
+                    <div class="panel-heading heading-question" data-question="question-<?=$ordem?>">
                         <h3 class="panel-title">Questão - <?php echo $ordem?>:</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body body-question" id="body-question-<?=$ordem?>">
                         
                         <div class="well qz-question">
                             <h2><?php echo $question->getQuestion()?></h2>
@@ -86,6 +90,23 @@ try {
                             </pre>
                         </div>
                         <?php endif; ?>
+                        
+                        <?php if($question->getMultipleChoices()) : ?>
+                        <div class="well qz-question qz-choices-<?=$ordem?>">
+                            <?php
+                                $letra = 'A';
+                                foreach ($question->getMultipleChoices() as $key => $choice) : 
+                            ?>
+                                <p id="choice-<?=$key?>" class='choice'>
+                                    <?php echo "$letra) - $choice"; $letra++; ?>
+                                </p>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <div class="well qz-question clearfix" id="a<?=$ordem?>">
+                            <button class="btn btn-primary btn-solveit pull-right" data-qid="<?=$ordem?>" data-aid="<?=json_encode($question->getAnswer())?>">solve it.</button>
+                        </div>
                 
                     </div>
                 </div>
