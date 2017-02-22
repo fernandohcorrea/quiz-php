@@ -41,7 +41,7 @@ try {
         <script src="./js/php-quiz.js"></script>
     </head>
     <body class="qz-body-main" role="document">
-        <nav class="navbar navbar-inverse navbar-fixed-top hidden-print">
+        <!--nav class="navbar navbar-inverse navbar-fixed-top hidden-print">
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Quiz-PHP</a>
@@ -54,14 +54,45 @@ try {
                             <ul class="dropdown-menu" role="menu">
                                 <?php
                                 foreach ($order as $ordem => $question_idx) : ?>
-                                <li><a href="#question-<?php echo $ordem?>">Question - <?php echo $ordem;?></a></li>
+                                <li><a href="javascript:void(0)" class='link-question' data-question="question-<?=$ordem?>" >Question - <?php echo ($ordem + 1);?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
+        </nav-->
+        
+        <nav class="navbar navbar-inverse navbar-fixed-top hidden-print">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">PHP-QUIZ</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Questões <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <?php
+                        foreach ($order as $ordem => $question_idx) : ?>
+                        <li><a href="javascript:void(0)" class='link-question' data-question="question-<?=$ordem?>" >Question - <?php echo ($ordem + 1);?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
         </nav>
+        
         
         <div class="container">
             <div class="page-header">
@@ -75,7 +106,7 @@ try {
             <div class="row">
                 <div class="panel panel-primary question" id="question-<?=$ordem?>">
                     <div class="panel-heading heading-question" data-question="question-<?=$ordem?>">
-                        <h3 class="panel-title">Questão - <?php echo $ordem?>:</h3>
+                        <h3 class="panel-title">Questão - <?php echo ($ordem + 1)?>:</h3>
                     </div>
                     <div class="panel-body body-question" id="body-question-<?=$ordem?>">
                         

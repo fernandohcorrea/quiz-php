@@ -1,15 +1,25 @@
 var Quiz = {
     
-    onClickHeading : function(heading){
+    onClickHeading : function(obj)
+    {
+        var data = $(obj).data();
+        var idq = data.question;
+        var idbody_q = "#body-" + idq;
         
-        
-        var data = $(heading).data();
-        
-        var idbody_q = "#body-" +data.question;
-        
-        console.debug(idbody_q);
-        
-        $(idbody_q).slideToggle(500);
+        $('.heading-question').each(function (a) {
+            var d = $(this).data();
+            var id_q_body = "#body-" + d.question;    
+            
+            if(id_q_body === idbody_q){
+                $(idbody_q).slideToggle(500, function(){
+                    $('html, body').animate({
+                        scrollTop:( $("#" + idq).offset().top - 60)
+                    }, 500);
+                });
+            } else {
+                $(id_q_body).slideUp();
+            }
+        });
         
     },
     
@@ -43,6 +53,10 @@ var Quiz = {
         var scope = this;
         
         $('.heading-question').click(function(){
+            scope.onClickHeading(this);
+        });
+        
+        $('.link-question').click(function(){
             scope.onClickHeading(this);
         });
         

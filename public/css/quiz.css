@@ -46,5 +46,9 @@ p {
     .hidden-print {
         display: none;
     }
+    
+    .body-question {
+        display:block;
+    }
 }
 
