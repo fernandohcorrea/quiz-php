@@ -34,7 +34,7 @@ return array(
     ),
     
     array(
-        'question' => 'Operatos bit :What is the output of the code below?',
+        'question' => 'Operators bit :What is the output of the code below?',
         'file_code_sample' => __DIR__.DIRECTORY_SEPARATOR.'operators_bit.php',
         'multiple_choices' => array(
                0 => 'a',
@@ -61,7 +61,7 @@ return array(
     ),
     
     array(
-        'question' => 'Operatos bit :What is the output of the code below?',
+        'question' => 'Operators bit :What is the output of the code below?',
         'file_code_sample' => __DIR__.DIRECTORY_SEPARATOR.'control_function.php',
         'multiple_choices' => array(
                0 => 'AB',
